@@ -5,11 +5,11 @@ import { convertRESTAPI } from '{{$$.relative("util")}}'
 function {{$$.toCamelMethod($$.convertMethod(mock))}}(opts) {
   return instance({
     method: '{{mock.method}}',
-    url: <% if($$.isREST(mock.url)) {} else { } %>,
+    url: '{{mock.url}}',
     opts: opts
   })
 }
 
-<% }) %>export {<% _.forEach(data.mocks, function(mock, i){ %>
-  {{$$.convertMethod(mock)}}<% if(data.mocks.length - 1 !== i) { %>,<% } %><% }) %>
+ }) %>export {<% _.forEach(data.mocks, function(mock, i){ %>
+  {{$$.toCamelMethod($$.convertMethod(mock))}}<% if(data.mocks.length - 1 !== i) { %>,<% } %><% }) %>
 }
