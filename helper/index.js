@@ -19,7 +19,7 @@ exports.convertMethod = function (mock) {
 
 exports.toCamelMethod = function (url){
   let params = url.split('_')
-  params.map((p,index)=>{
+  params = params.map((p,index)=>{
     if(index === 0){
       return p
     }else{
