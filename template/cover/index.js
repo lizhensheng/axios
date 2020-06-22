@@ -10,6 +10,7 @@ function {{$$.toCamelMethod($$.convertMethod(mock))}}(opts) {
   })
 }
 
- }) %>export {<% _.forEach(data.mocks, function(mock, i){ %>
+<%}) %>
+ export {<% _.forEach(data.mocks, function(mock, i){ %>
   {{$$.toCamelMethod($$.convertMethod(mock))}}<% if(data.mocks.length - 1 !== i) { %>,<% } %><% }) %>
 }
