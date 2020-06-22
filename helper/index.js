@@ -5,26 +5,38 @@ var convertUrl = exports.convertUrl = function (url) {
     .replace(/:|{|}/g, '')
     .replace(/-/g, '_')
     .split('/')
-    .filter(value => !!value).join('_');
-  return _url.split('.')[0];
-};
+    .filter(value => !!value).join('_')
+  return _url.split('.')[0]
+}
 
 exports.convertMethod = function (mock) {
   // 防止重名
   // restful_id_list_id => restful_id_list_id_g
   // or
   // restful_id_list_id => restful_id_list_id_p
-  return convertUrl(mock.url) + '_' + mock.method.toLowerCase();
-};
+  return convertUrl(mock.url) + '_' + mock.method.toLowerCase()
+}
+
+exports.toCamelMethod = function (url){
+  let params = url.split('_')
+  params.map((p,index)=>{
+    if(index === 0){
+      return p
+    }else{
+      return p.subStr(0,1).toUpperCase() + p.subStr(1)
+    }
+  })
+  return params.join('')
+}
 
 exports.joinUrl = function () {
   // https://www.easy-mock.com//mock/.... => https://www.easy-mock.com/mock/....
   var url = [].slice.call(arguments, 0).join('/');
   url = url.replace(/:\//g, '://');
   url = url.replace(/([^:\s\%\3\A])\/+/g, '$1/');
-  return url;
+  return url
 }
 
 exports.isREST = function (url) {
-  return /(:|{|})/.test(url);
+  return /(:|{|})/.test(url)
 }
