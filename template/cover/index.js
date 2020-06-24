@@ -2,7 +2,7 @@ import axios from './instance'
 
 <% _.forEach(data.mocks, function(mock){ %>/** {{mock.description}} */
 function {{$$.toCamelMethod($$.convertMethod(mock))}} (opts) {
-  return axios.{{}}({
+  return axios.{{mock.method}}({
     method: '{{mock.method}}',
     url: '{{mock.url}}',
     opts: opts
