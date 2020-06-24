@@ -9,7 +9,7 @@
     "create-api": "easymock init example",
     "dev": "npm run create-api && npm run build"
   },
-  "author": "Chuangker",
+  "author": "lizhensheng",
   "license": "MIT",
   "keywords": [
     "easy-mock",
@@ -17,7 +17,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/easy-mock-templates/axios.git"
+    "url": "git+https://github.com/lizhensheng/axios.git"
   },
   "devDependencies": {
     "axios": "^0.16.1",
